@@ -9,6 +9,8 @@ import '../provider/books_provider.dart';
 import '../config/service_url.dart';
 import '../provider/spinner_provider.dart';
 import '../provider/navi_provider.dart';
+import '../routers/application.dart';
+import '../routers/routers.dart';
 class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -145,7 +147,9 @@ class __HomePageState extends State<_HomePage>  with AutomaticKeepAliveClientMix
       List<Widget> listwidget = [];
       for (var book in model.getBooks()) {
         Widget w = InkWell(
-              onTap: (){},
+              onTap: (){
+                Application.router.navigateTo(context, '${Routers.detailPage}?book=${book.id.toString()}');
+              },
               child: Container(
                 width: ScreenUtil().setWidth(372),
                 color: Colors.white,

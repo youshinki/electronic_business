@@ -65,4 +65,19 @@ class CategoryProvide with ChangeNotifier{
       notifyListeners();
     });
   }
+
+
+  BookListResponseData getBookDetail(String id){
+    int intId = int.parse(id);
+    if(booksData == null || booksData.length == 0){
+      return null;
+    }
+    for (var book in booksData) {
+      if(book.id == intId){
+        return book;
+      }
+    }
+
+    return null;
+  }
 }

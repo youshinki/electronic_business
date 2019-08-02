@@ -4,6 +4,8 @@ import 'package:provide/provide.dart';
 import 'package:flutter_easyrefresh/easy_refresh.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
+import '../routers/routers.dart';
+import '../routers/application.dart';
 import '../provide/category_provide.dart';
 import '../protocols/category_response_entity.dart';
 import '../protocols/book_list_response_entity.dart';
@@ -341,7 +343,7 @@ class _RightBookListState extends State<RightBookList> {
   _buildItem(List<BookListResponseData> list, int index){
     return InkWell(
       onTap: (){
-
+        Application.router.navigateTo(context, '${Routers.detailPage}?book=${list[index].id.toString()}');
       },
       child: Container(
         height: ScreenUtil().setHeight(200),
